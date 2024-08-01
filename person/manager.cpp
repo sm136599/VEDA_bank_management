@@ -23,7 +23,10 @@ Manager::Manager(string name, int age) : Person(name, age)
 }
 
 
-
+string Manager::who_is_this()
+{
+    return "Manager";
+}
 
 
 Manager::~Manager()

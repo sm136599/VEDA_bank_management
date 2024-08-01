@@ -16,6 +16,7 @@ public:
     User();
     User(string, int);
     // 계좌 관련 함수들은 추후 추가 예정
+    string who_is_this(); 
     ~User();
 };
 
