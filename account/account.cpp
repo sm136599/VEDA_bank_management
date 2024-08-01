@@ -9,9 +9,11 @@ using namespace std;
 Account::Account() : Account(0) {}
 Account::Account(int money) {
     this->balance = money;
+    this->startDate = time(NULL);
 }
 
 void Account::show_info() {
+    balance += interest;
     cout << "계좌 잔액: " << num_to_string_with_comma(balance) << "원" << endl;
 }
 bool Account::deposit(int money) {
