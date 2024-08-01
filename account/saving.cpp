@@ -16,9 +16,10 @@ Saving::Saving(int money, int duration) : Account(money), duration(duration) {
     calculate_interest();
 }
 void Saving::show_info() {
+    balance += interest * (time(NULL) - startDate);
     cout << "계좌 종류: " << duration << "개월 정기 예금 계좌" << endl;
     cout << "계좌 생성일: " << make_time_string(startDate) << endl;
-    cout << "계좌 잔액: " << num_to_string_with_comma(balance) << "원" << endl;
+    Account::show_info();
 }
 void Saving::calculate_interest() {
     int year = duration / 12;

@@ -13,7 +13,6 @@ Account::Account(int money) {
 }
 
 void Account::show_info() {
-    balance += interest;
     cout << "계좌 잔액: " << num_to_string_with_comma(balance) << "원" << endl;
 }
 bool Account::deposit(int money) {
