@@ -24,6 +24,11 @@ User::User(string name, int age) : Person(name, age)
 
 // 계좌 관련 함수들은 추후 추가 예정
 
+string User::who_is_this()
+{
+    return "User"; 
+}
+
 User::~User()
 {
     cout << "name: " << this->name << ", age: " << this->age << "인 사용자 소멸\n";
