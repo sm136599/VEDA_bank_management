@@ -5,7 +5,8 @@ class Deposit : public Account {
 public:
     Deposit();
     Deposit(int);
-    void show_info();
+    virtual void show_info();
+    virtual void calculate_interest();
     bool deposit(int money);
     bool withdraw(int money);
 };

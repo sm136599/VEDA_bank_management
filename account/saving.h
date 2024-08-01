@@ -2,12 +2,12 @@
 
 #include "account.h"
 class Saving : public Account {
-    int startDate;
     int duration;
 public:
     Saving();
     Saving(int, int);
-    void show_info();
+    virtual void show_info();
+    virtual void calculate_interest();
     bool deposit(int money);
     bool isExpired();
 };
