@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -32,6 +33,16 @@ void Person::set_name(string name)
 void Person::set_age(int age)
 {
     this->age = age;
+}
+
+string Person::get_name()
+{
+    return this->name;
+}
+
+int Person::get_age()
+{
+    return this->age; 
 }
 
 Person::~Person()

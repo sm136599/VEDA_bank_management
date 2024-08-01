@@ -1,22 +1,19 @@
-//
-//  user.h
-//  CPP
-//
-//  Created by 김서현 on 8/1/24.
-//
-
 #ifndef user_h
 #define user_h
 
 #include "person.h"
+#include "account.h"
 
 class User : public Person {
-    // vertor<Account*> accounts;
+     vector<Account*> accounts;
 public:
     User();
     User(string, int);
-    // 계좌 관련 함수들은 추후 추가 예정
-    string who_is_this(); 
+    void make_deposit();
+    void make_saving(); 
+    void deposit();
+    void withdraw(); 
+    string who_is_this();
     ~User();
 };
 

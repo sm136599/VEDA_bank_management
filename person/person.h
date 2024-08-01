@@ -41,7 +41,9 @@ public:
     Person(string, int);
     void set_name(string);
     void set_age(int);
-    virtual string who_is_this() = 0; 
+    string get_name();
+    int get_age(); 
+    virtual string who_is_this() = 0;
     ~Person();
 };
 
