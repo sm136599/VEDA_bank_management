@@ -42,8 +42,10 @@ public:
     void set_name(string);
     void set_age(int);
     string get_name();
-    int get_age(); 
+    int get_age();
     virtual string who_is_this() = 0;
+    virtual void make_deposit() = 0;
+    virtual void make_saving() = 0;
     ~Person();
 };
 

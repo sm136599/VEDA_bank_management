@@ -14,7 +14,9 @@ class Manager : public Person {
 public:
     Manager();
     Manager(string name, int age);
-    string who_is_this(); 
+    string who_is_this();
+    void make_deposit();
+    void make_saving(); 
     ~Manager();
 };
 

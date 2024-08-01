@@ -29,6 +29,15 @@ string Manager::who_is_this()
     return "Manager";
 }
 
+void Manager::make_deposit()
+{
+    return;
+}
+
+void Manager::make_saving()
+{
+    return;
+}
 
 Manager::~Manager()
 {
