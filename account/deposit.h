@@ -1,4 +1,6 @@
-#pragma once
+#ifndef deposit_h
+#define deposit_h
+
 
 #include "account.h"
 class Deposit : public Account {
@@ -10,3 +12,5 @@ public:
     bool deposit(int money);
     bool withdraw(int money);
 };
+
+#endif

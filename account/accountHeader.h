@@ -1,7 +1,4 @@
-#pragma
-#include "account.h"
+#pragma once
 #include "account.cpp"
-#include "deposit.h"
 #include "deposit.cpp"
-#include "saving.h"
 #include "saving.cpp"

@@ -12,9 +12,6 @@
 using namespace std; 
 
 #include "user.h"
-#include "account.h"
-#include "deposit.h"
-#include "saving.h"
 
 User::User() : Person()
 {

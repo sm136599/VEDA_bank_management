@@ -2,7 +2,7 @@
 #define user_h
 
 #include "person.h"
-#include "account.h"
+#include "../account/accountHeader.h"
 
 class User : public Person {
      vector<Account*> accounts;

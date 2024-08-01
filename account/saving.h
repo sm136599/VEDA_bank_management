@@ -1,4 +1,5 @@
-#pragma once
+#ifndef saving_h
+#define saving_h
 
 #include "account.h"
 class Saving : public Account {
@@ -11,3 +12,5 @@ public:
     bool deposit(int money);
     bool isExpired();
 };
+
+#endif

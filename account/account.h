@@ -1,4 +1,5 @@
-#pragma once
+#ifndef account_h
+#define account_h
 
 class Account {
 protected:
@@ -14,3 +15,5 @@ public:
     bool deposit(int money);
     bool withdraw(int money);
 };
+
+#endif

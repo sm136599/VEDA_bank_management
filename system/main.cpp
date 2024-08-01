@@ -5,11 +5,7 @@
 
 using namespace std;
 
-#include "utility.h"
-#include "person.h"
-#include "user.h"
-#include "manager.h"
-
+#include "headers.h"
 
 map<string, pair<string, Person*>> sys; // id: <pw,person>
 string id, pw;
@@ -115,7 +111,6 @@ void description(void)
     cout << "\n\nVEDA 은행에는 다음과 같은 상품이 있습니다.\n";
     cout << "1. 보통예금: 10,000만원 한도, 연 3%(단리)\n";
     cout << "2. 정기예금: 1년 만기, 최대 5,000만원 입금, 연 5%(단리)\n";
-    cout << "회원가입시 (1. 예금) 상품은 자동 개설됩니다.\n";
     cout << "많은 이용 바랍니다.\n\n\n";
 }
 
