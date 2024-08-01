@@ -38,6 +38,10 @@ void Manager::make_saving()
 {
     return;
 }
+void Manager::show_all_account() 
+{
+    return;
+}
 
 Manager::~Manager()
 {

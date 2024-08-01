@@ -15,6 +15,7 @@ public:
     Manager();
     Manager(string name, int age);
     string who_is_this();
+    void show_all_account();
     void make_deposit();
     void make_saving(); 
     ~Manager();

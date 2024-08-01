@@ -26,8 +26,7 @@ void Saving::calculate_interest() {
     this->interest = balance * (0.05) * year / 12;
 }
 bool Saving::deposit(int money) {
-    Account::deposit(money);
-    return true;
+    return Account::deposit(money);
 }
 bool Saving::isExpired() {
     return (time(NULL) > startDate + duration);

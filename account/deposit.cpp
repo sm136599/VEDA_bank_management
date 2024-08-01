@@ -22,8 +22,7 @@ void Deposit::calculate_interest() {
     this->interest = balance * (0.03) / 12;
 }
 bool Deposit::deposit(int money) {
-    Account::deposit(money);
-    return true;
+    return Account::deposit(money);
 }
 bool Deposit::withdraw(int money) {
     return Account::withdraw(money);

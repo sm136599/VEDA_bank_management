@@ -43,6 +43,7 @@ public:
     void set_age(int);
     string get_name();
     int get_age();
+    virtual void show_all_account() = 0;
     virtual string who_is_this() = 0;
     virtual void make_deposit() = 0;
     virtual void make_saving() = 0;

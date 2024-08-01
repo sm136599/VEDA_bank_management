@@ -45,6 +45,12 @@ void User::make_saving()
     cout << "정기예금 잔액: " << money << ", 기간: " << year << "년\n";
 }
 
+void User::show_all_account() {
+    for (const auto& account : accounts) {
+        account->show_info();
+    }
+}
+
 string User::who_is_this()
 {
     return "User"; 

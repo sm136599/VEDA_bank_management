@@ -18,6 +18,7 @@ void Account::show_info() {
 bool Account::deposit(int money) {
     this->balance += money;
     cout << num_to_string_with_comma(money) << "원 입금 완료" << endl;
+    return true;
 }
 bool Account::withdraw(int money) {
     if (this->balance < money) {

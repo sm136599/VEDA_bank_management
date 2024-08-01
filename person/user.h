@@ -13,6 +13,7 @@ public:
     void make_saving(); 
     void deposit();
     void withdraw(); 
+    void show_all_account();
     string who_is_this();
     ~User();
 };

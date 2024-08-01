@@ -27,23 +27,28 @@ void search_user()
         cin >> id;
         if (id == "exit")
             break;
-        if (sys.find(id) == sys.end())
+        
+        const auto& found_user = sys.find(id);
+        if (found_user == sys.end())
             cout << "해당 id를 가진 유저가 없습니다.\n";
         else {
             cout << "*** " << id << " 유저의 정보 ***\n";
-            cout << "유저의 이름: " << sys[id].second->get_name() << '\n';
-            cout << "유저의 나이: " << sys[id].second->get_age() << '\n';
-//            cout << "유저의 계좌: 총 " <<
+            cout << "유저의 이름: " << found_user->second.second->get_name() << '\n';
+            cout << "유저의 나이: " << found_user->second.second->get_age() << '\n';
+            found_user->second.second->show_all_account();
         }
     }
     cout << "\n... 조회를 종료합니다 ...\n\n";
+}
+
+void delete_user() {
 }
 
 void manager_screen(void)
 {
     int cmd = 0;
     
-    while (cmd != 1 && cmd != 9) {
+    while (cmd != 9) {
 //        system("cls");
         cout << "\n\n... 매니저 모드에 진입했습니다 ...\n";
         
@@ -59,12 +64,12 @@ void manager_screen(void)
         cout << "메뉴를 선택하세요: ";
         cin >> cmd;
         
-//        switch (cmd) {
-//            case 1: search_user(); return; break;
-//            case 2: delete_user(); break;
-//            case 9: init_screen(); return;  break;
-//            default: cout << "다시 입력하세요.\n"; init_screen(); break;
-//        }
+       switch (cmd) {
+           case 1: search_user(); break;
+           case 2: delete_user(); break;
+           case 9: break;
+           default: cout << "다시 입력하세요.\n"; break;
+       }
     }
 }
 
@@ -146,7 +151,7 @@ void init_screen()
 {
     int cmd = 0;
     
-    while (cmd != 1 && cmd != 9) {
+    while (cmd != 9) {
 //        system("cls");
         cout << "\n\n<< VEDA 은행에 오신 것을 환영합니다! >> \n";
         
@@ -166,7 +171,7 @@ void init_screen()
         cin >> cmd;
         
         switch (cmd) {
-            case 1: login(); return; break;
+            case 1: login(); break;
             case 2: sign_up(); break;
             case 3: description(); break;
             case 9: end_sys(); return;  break;
