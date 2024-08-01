@@ -59,7 +59,7 @@ void manager_screen(void)
         cout << "2: 유저 삭제\n";
         
         // 9: 매니저 모드 종료 ... init_screen()
-        cout << "9: 매니저 모드 종료\n";
+        cout << "9: 로그 아웃\n";
         
         cout << "메뉴를 선택하세요: ";
         cin >> cmd;
@@ -79,13 +79,48 @@ void manager_mode()
     manager_screen();
 }
 
+void make_account()
+{
+    cout << "만드실 계좌를 선택해주세요\n";
+    cout << "1. 보통예금: 10,000만원 한도, 연 3%(단리)\n";
+    cout << "2. 정기예금: 1년 만기, 최대 5,000만원 입금, 연 5%(단리)\n";
+    int cmd;
+    cin >> cmd;
+    if (cmd == 1)
+        sys[id].second->make_deposit();
+    else
+        sys[id].second->make_saving();
+    return;
+}
 void user_mode()
 {
-    cout << "\n\n... 유저 모드에 진입했습니다 ...\n\n";
-    
-    // 적금 깨기
+//  전체 계좌 조회(계좌번호, 잔액, 계좌의 종류 출력) / 계좌 개설 / 계좌 삭제 / 탈퇴
+    int cmd = 0;
+    while (cmd != 9) {
+    //    system("cls");
+        cout << "\n\n... 유저 모드에 진입했습니다 ...\n\n";
+        // 1: 전체 계좌 조회 ... show_all_account()
+        cout << "1: 전체 계좌 조회\n";
+        // 2: 계좌 개설 ... make_account()
+        cout << "2: 계좌 개설\n";
+        // 3: 계좌 삭제 ... delete_account()
+        cout << "3: 계좌 삭제\n";
+        // 4: 회원 탈퇴 ...
+        cout << "4: 회원 탈퇴\n";
+        // 9: 종료 ... end_sys()
+        cout << "9: 로그 아웃\n";
+        cout << "메뉴를 선택하세요: ";
+        cin >> cmd;
+        switch (cmd) {
+    //      case 1: sys[id].second->show_all_account() ; break;
+        case 2: make_account(); break;
+    //      case 3: description(); break;
+        case 4: sys.erase(id); cout << "탈퇴가 완료되었습니다.\n"; break;
+    //      case 9: end_sys(); return; break;
+        default: cout << "다시 입력하세요.\n"; break;
+        }
+    }
 }
-
 void login()
 {
     cout << "<< VEDA 은행 로그인 >>\n\n";
