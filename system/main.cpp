@@ -112,10 +112,10 @@ void user_mode()
         cout << "메뉴를 선택하세요: ";
         cin >> cmd;
         switch (cmd) {
-    //      case 1: sys[id].second->show_all_account() ; break;
+        case 1: sys[id].second->show_all_account() ; break;
         case 2: make_account(); break;
     //      case 3: description(); break;
-        case 4: sys.erase(id); cout << "탈퇴가 완료되었습니다.\n"; break;
+        case 4: delete sys[id].second; sys.erase(id); cout << "탈퇴가 완료되었습니다.\n"; break;
     //      case 9: end_sys(); return; break;
         default: cout << "다시 입력하세요.\n"; break;
         }
