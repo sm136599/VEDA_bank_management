@@ -11,15 +11,6 @@ using namespace std;
 map<string, pair<string, Person*>> sys; // id: <pw,person>
 string id, pw;
 
-void init_data()
-{
-    cout << "... 초기 데이터 입력중 ... \n";
-    sys.insert(make_pair("seohyun", make_pair("010204", new User("seohyun", 24))));
-    sys.insert(make_pair("sungmin", make_pair("990819", new User("sungmin", 26))));
-    sys.insert(make_pair("manager", make_pair("000000", new Manager("매니저", 0))));
-    cout << "\n\n";
-}
-
 void search_user()
 {
     id = "";
@@ -160,8 +151,10 @@ void login()
 {
     cout << "<< VEDA 은행 로그인 >>\n\n";
     while (true) {
+        cout << "뒤로가기 '-1' 입력\n";
         cout << "아이디를 입력하세요: ";
         cin >> id;
+        if (id == "-1") break;
         cout << "비밀번호를 입력하세요: ";
         cin >> pw;
         
@@ -250,6 +243,40 @@ void init_screen()
     }
 }
 
+void init_data()
+{
+    cout << "... 초기 데이터 입력중 ... \n";
+    ifstream fin;
+    fin.open("person_data.txt");
+
+    int N; fin >> N;
+    for (int i = 0; i < N; i++) {
+        string id, pw, person_type; fin >> person_type >> id >> pw;
+        string name; int age; fin >> name >> age;
+        
+        if (person_type == "User") {
+            sys.insert(make_pair(id, make_pair(pw, new User(name, age))));
+            int account_N; fin >> account_N;
+            Person* tmp = sys[id].second;
+            for (int j = 0; j < account_N; j++) {
+                string account_type; int s; int balance;
+                fin >> account_type >> s >> balance;
+                if (account_type == "Deposit") {
+                    tmp->insert_deposit(balance, s);
+                }
+                else if (account_type == "Saving") {
+                    int duration; fin >> duration;
+                    tmp->insert_saving(balance, duration, s);
+                }
+            }
+        }
+        else if (person_type == "Manager") {
+            sys.insert(make_pair(id, make_pair(pw, new Manager(name, age))));
+        }
+    }
+    cout << "\n\n";
+    fin.close();
+}
 void save_data() {
     ofstream fout;
     fout.open("person_data.txt");
@@ -257,18 +284,21 @@ void save_data() {
     fout << sys.size() << endl;
     for (const auto& person : sys) {
         const string& type = person.second.second->who_is_this();
-        fout << person.first << " " << person.second.first << " " << type << endl;
+        fout << type << " " << person.first << " " << person.second.first << " " << endl;
+        fout << person.second.second->get_name() << " " << person.second.second->get_age() << endl;
         if (type == "User") {
             const auto& accounts = person.second.second->get_accounts();
             fout << accounts.size() << endl;
             for (const auto& account : accounts) {
                 const string& account_type = account->who_is_this();
-                fout << account_type << " " << account->get_account_number() << " " << account->get_start_date() << " " << account->get_balance() << " ";
+                fout << account_type << " " << account->get_start_date() << " " << account->get_balance() << " ";
                 if (account_type == "Saving") fout << account->get_duration() << endl;
+                else fout << endl;
             }
         }
 
     }
+    fout.close();
 }
 
 int main(void)
