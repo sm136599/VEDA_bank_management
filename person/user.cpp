@@ -46,7 +46,9 @@ void User::make_saving()
 }
 
 void User::show_all_account() {
+    int idx = 0;
     for (const auto& account : accounts) {
+        cout << idx << "번 계좌: "; 
         account->show_info();
     }
 }
@@ -54,6 +56,11 @@ void User::show_all_account() {
 string User::who_is_this()
 {
     return "User"; 
+}
+
+vector<Account*> User::get_accounts()
+{
+    return this->accounts; 
 }
 
 User::~User()

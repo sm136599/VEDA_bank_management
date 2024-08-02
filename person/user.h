@@ -15,6 +15,7 @@ public:
     virtual void make_saving(); 
     virtual void make_deposit();
     virtual string who_is_this();
+    virtual vector<Account*> get_accounts(); 
     virtual ~User();
 };
 

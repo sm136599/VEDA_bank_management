@@ -43,6 +43,12 @@ void Manager::show_all_account()
     return;
 }
 
+vector<Account*> Manager::get_accounts()
+{
+    vector<Account*> v;
+    return v;
+}
+
 Manager::~Manager()
 {
     cout << "name: " << this->name << ", age: " << this->age << "인 관리자 소멸\n";

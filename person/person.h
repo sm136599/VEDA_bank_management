@@ -46,6 +46,7 @@ public:
     virtual void show_all_account() = 0;
     virtual void make_deposit() = 0;
     virtual void make_saving() = 0;
+    virtual vector<Account*> get_accounts() = 0; 
     virtual string who_is_this() = 0;
     virtual ~Person();
 };

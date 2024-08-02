@@ -18,6 +18,7 @@ public:
     virtual void show_all_account();
     virtual void make_deposit();
     virtual void make_saving(); 
+    virtual vector<Account*> get_accounts(); 
     virtual ~Manager();
 };
 
