@@ -11,6 +11,7 @@ public:
     virtual void calculate_interest();
     bool deposit(int money);
     bool isExpired();
+    virtual ~Saving();
 };
 
 #endif

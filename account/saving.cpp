@@ -15,6 +15,9 @@ Saving::Saving(int money, int duration) : Account(money), duration(duration) {
     this->startDate = time(NULL);
     calculate_interest();
 }
+Saving::~Saving() {
+    cout << "Saving 소멸자" << endl;
+}
 void Saving::show_info() {
     balance += interest * (time(NULL) - startDate);
     cout << "계좌 종류: " << duration << "개월 정기 예금 계좌" << endl;
