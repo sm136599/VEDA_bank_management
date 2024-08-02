@@ -30,3 +30,18 @@ bool Deposit::deposit(int money) {
 bool Deposit::withdraw(int money) {
     return Account::withdraw(money);
 }
+string Deposit::who_is_this() {
+    return "Deposit";
+}
+time_t Deposit::get_start_date() {
+    return Account::get_start_date();
+}
+int Deposit::get_account_number() {
+    return Account::get_account_number();
+}
+int Deposit::get_balance() {
+    return Account::get_balance();
+}
+int Deposit::get_duration() {
+    return 0;
+}

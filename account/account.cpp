@@ -21,21 +21,30 @@ bool Account::deposit(int money) {
   return true;
 }
 bool Account::withdraw(int money) {
-  if (this->balance < money) {
-    cout << "잔액 부족" << endl;
-    return false;
-  }
-  this->balance -= money;
-  cout << num_to_string_with_comma(money) << "원 출금 완료" << endl;
-  return true;
-  // try
-  // {
-  //   if (this->balance < money) throw new exception("잔액 부족");
-  //   this->balance -= money;
-  //   cout << money << "원 출금 완료" << endl;
-  // }
-  // catch(const std::exception& e)
-  // {
-  //   std::cerr << e.what() << '\n';
-  // }
+    if (this->balance < money) {
+        cout << "잔액 부족" << endl;
+        return false;
+    }
+    this->balance -= money;
+    cout << num_to_string_with_comma(money) << "원 출금 완료" << endl;
+    return true;
+    // try
+    // {
+    //   if (this->balance < money) throw new exception("잔액 부족");
+    //   this->balance -= money;
+    //   cout << money << "원 출금 완료" << endl;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //   std::cerr << e.what() << '\n';
+    // }
+}
+time_t Account::get_start_date() {
+    return this->startDate;
+}
+int Account::get_account_number() {
+    return this->account_number;
+}
+int Account::get_balance() {
+    return this->balance;
 }

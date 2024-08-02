@@ -34,3 +34,18 @@ bool Saving::deposit(int money) {
 bool Saving::isExpired() {
     return (time(NULL) > startDate + duration);
 }
+string Saving::who_is_this() {
+    return "Saving";
+}
+time_t Saving::get_start_date() {
+    return Account::get_start_date();
+}
+int Saving::get_account_number() {
+    return Account::get_account_number();
+}
+int Saving::get_balance() {
+    return Account::get_balance();
+}
+int Saving::get_duration() {
+    return this->duration;
+}
