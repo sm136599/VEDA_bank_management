@@ -9,13 +9,13 @@ class User : public Person {
 public:
     User();
     User(string, int);
-    void make_deposit();
-    void make_saving(); 
     void deposit();
     void withdraw(); 
-    void show_all_account();
-    string who_is_this();
-    ~User();
+    virtual void show_all_account();
+    virtual void make_saving(); 
+    virtual void make_deposit();
+    virtual string who_is_this();
+    virtual ~User();
 };
 
 #endif /* user_h */

@@ -15,10 +15,10 @@ public:
     Manager();
     Manager(string name, int age);
     string who_is_this();
-    void show_all_account();
-    void make_deposit();
-    void make_saving(); 
-    ~Manager();
+    virtual void show_all_account();
+    virtual void make_deposit();
+    virtual void make_saving(); 
+    virtual ~Manager();
 };
 
 
