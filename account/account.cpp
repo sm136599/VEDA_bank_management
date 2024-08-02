@@ -5,7 +5,11 @@ using namespace std;
 #include "account.h"
 
 Account::Account() : Account(0) {}
-Account::Account(int money, time_t s = time(NULL)) {
+Account::Account(int money) {
+  this->balance = money;
+  this->startDate = time(NULL);
+}
+Account::Account(int money, time_t s) {
   this->balance = money;
   this->startDate = s;
 }
@@ -41,9 +45,6 @@ bool Account::withdraw(int money) {
 }
 time_t Account::get_start_date() {
     return this->startDate;
-}
-int Account::get_account_number() {
-    return this->account_number;
 }
 int Account::get_balance() {
     return this->balance;

@@ -6,6 +6,7 @@ class Saving : public Account {
     int duration;
 public:
     Saving();
+    Saving(int, int);
     Saving(int, int, time_t);
     virtual void show_info();
     virtual void calculate_interest();
@@ -13,7 +14,6 @@ public:
     virtual bool isExpired();
     virtual string who_is_this();
     virtual time_t get_start_date();
-    virtual int get_account_number();
     virtual int get_balance();
     virtual int get_duration();
     virtual ~Saving();

@@ -9,7 +9,10 @@ using namespace std;
 Deposit::Deposit() : Deposit(0) {
 
 }
-Deposit::Deposit(int money, time_t s = time(NULL)) : Account(money, s) {
+Deposit::Deposit(int money) : Account(money) {
+    calculate_interest();
+}
+Deposit::Deposit(int money, time_t s) : Account(money, s) {
     calculate_interest();
 }
 Deposit::~Deposit() {
@@ -35,9 +38,6 @@ string Deposit::who_is_this() {
 }
 time_t Deposit::get_start_date() {
     return Account::get_start_date();
-}
-int Deposit::get_account_number() {
-    return Account::get_account_number();
 }
 int Deposit::get_balance() {
     return Account::get_balance();

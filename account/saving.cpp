@@ -11,8 +11,10 @@ using namespace std;
 Saving::Saving() : Saving(0, 0) {
 
 }
-Saving::Saving(int money, int duration, time_t s = time(NULL)) : Account(money, s), duration(duration) {
-    this->startDate = time(NULL);
+Saving::Saving(int money, int duration) : Account(money), duration(duration) {
+    calculate_interest();
+}
+Saving::Saving(int money, int duration, time_t s) : Account(money, s), duration(duration) {
     calculate_interest();
 }
 Saving::~Saving() {
@@ -39,9 +41,6 @@ string Saving::who_is_this() {
 }
 time_t Saving::get_start_date() {
     return Account::get_start_date();
-}
-int Saving::get_account_number() {
-    return Account::get_account_number();
 }
 int Saving::get_balance() {
     return Account::get_balance();
