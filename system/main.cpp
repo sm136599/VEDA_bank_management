@@ -35,13 +35,40 @@ void search_user()
             cout << "*** " << id << " 유저의 정보 ***\n";
             cout << "유저의 이름: " << found_user->second.second->get_name() << '\n';
             cout << "유저의 나이: " << found_user->second.second->get_age() << '\n';
-            found_user->second.second->show_all_account();
+            found_user->second.second->show_all_account(); 
         }
     }
     cout << "\n... 조회를 종료합니다 ...\n\n";
 }
 
 void delete_user() {
+    id = "";
+    while (id != "exit") {
+        cout << "\n\n삭제할 유저의 id를 입력하세요(종료를 원할시 \"exit\" 입력): \n";
+        cin >> id;
+        if (id == "exit")
+            break;
+        
+        const auto& found_user = sys.find(id);
+        if (found_user == sys.end())
+            cout << "해당 id를 가진 유저가 없습니다.\n";
+        else {
+            cout << "*** " << id << " 유저의 정보 ***\n";
+            cout << "유저의 이름: " << found_user->second.second->get_name() << '\n';
+            cout << "유저의 나이: " << found_user->second.second->get_age() << '\n';
+            found_user->second.second->show_all_account(); 
+
+            cout << "정말 삭제 하시겠습니까? (y/n) ";
+            string ans; cin >> ans;
+            if (ans == "y" || ans == "Y") {
+                delete found_user->second.second;
+                sys.erase(found_user);
+                cout << "삭제를 완료하였습니다.\n";
+            }
+
+        }
+    }
+    cout << "\n... 삭제를 종료합니다 ...\n\n";
 }
 
 void manager_screen(void)
