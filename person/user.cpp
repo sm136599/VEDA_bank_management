@@ -44,12 +44,19 @@ void User::make_saving()
     cout << "정기예금이 생성되었습니다.\n";
     cout << "정기예금 잔액: " << money << ", 기간: " << year << "년\n";
 }
+void User::insert_deposit(int money) {
+    this->accounts.push_back(new Deposit(money));
+}
 
-void User::insert_deposit(int money, time_t s = time(NULL)) {
+void User::insert_saving(int money, int duration) {
+    this->accounts.push_back(new Saving(money, duration));
+}
+
+void User::insert_deposit(int money, time_t s) {
     this->accounts.push_back(new Deposit(money, s));
 }
 
-void User::insert_saving(int money, int duration, time_t s = time(NULL)) {
+void User::insert_saving(int money, int duration, time_t s) {
     this->accounts.push_back(new Saving(money, duration, s));
 }
 
