@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <fstream>
 
 using namespace std;
 
@@ -249,10 +250,32 @@ void init_screen()
     }
 }
 
+void save_data() {
+    ofstream fout;
+    fout.open("person_data.txt");
+
+    fout << sys.size() << endl;
+    for (const auto& person : sys) {
+        const string& type = person.second.second->who_is_this();
+        fout << person.first << " " << person.second.first << " " << type << endl;
+        if (type == "User") {
+            const auto& accounts = person.second.second->get_accounts();
+            fout << accounts.size() << endl;
+            for (const auto& account : accounts) {
+                const string& account_type = account->who_is_this();
+                fout << account_type << " " << account->get_account_number() << " " << account->get_start_date() << " " << account->get_balance() << " ";
+                if (account_type == "Saving") fout << account->get_duration() << endl;
+            }
+        }
+
+    }
+}
+
 int main(void)
 {
     init_data();
     init_screen();
+    save_data();
     
     return 0;
 }
