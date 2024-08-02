@@ -35,7 +35,7 @@ void search_user()
             cout << "*** " << id << " 유저의 정보 ***\n";
             cout << "유저의 이름: " << found_user->second.second->get_name() << '\n';
             cout << "유저의 나이: " << found_user->second.second->get_age() << '\n';
-            found_user->second.second->show_all_account(); 
+            found_user->second.second->show_all_account();
         }
     }
     cout << "\n... 조회를 종료합니다 ...\n\n";
@@ -56,7 +56,7 @@ void delete_user() {
             cout << "*** " << id << " 유저의 정보 ***\n";
             cout << "유저의 이름: " << found_user->second.second->get_name() << '\n';
             cout << "유저의 나이: " << found_user->second.second->get_age() << '\n';
-            found_user->second.second->show_all_account(); 
+            found_user->second.second->show_all_account();
 
             cout << "정말 삭제 하시겠습니까? (y/n) ";
             string ans; cin >> ans;
@@ -119,6 +119,13 @@ void make_account()
         sys[id].second->make_saving();
     return;
 }
+
+void delete_account()
+{
+    cout << "삭제할 계좌를 선택해주세요\n";
+    sys[id].second->show_all_account();
+}
+
 void user_mode()
 {
 //  전체 계좌 조회(계좌번호, 잔액, 계좌의 종류 출력) / 계좌 개설 / 계좌 삭제 / 탈퇴
@@ -141,7 +148,7 @@ void user_mode()
         switch (cmd) {
         case 1: sys[id].second->show_all_account() ; break;
         case 2: make_account(); break;
-    //      case 3: description(); break;
+          case 3: delete_account(); break;
         case 4: delete sys[id].second; sys.erase(id); cout << "탈퇴가 완료되었습니다.\n"; break;
     //      case 9: end_sys(); return; break;
         default: cout << "다시 입력하세요.\n"; break;
