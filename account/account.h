@@ -14,6 +14,7 @@ public:
     virtual void calculate_interest() = 0;
     bool deposit(int money);
     bool withdraw(int money);
+    virtual ~Account();
 };
 
 #endif

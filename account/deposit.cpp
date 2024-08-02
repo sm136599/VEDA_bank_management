@@ -12,6 +12,9 @@ Deposit::Deposit() : Deposit(0) {
 Deposit::Deposit(int money) : Account(money) {
     calculate_interest();
 }
+Deposit::~Deposit() {
+    cout << "Deposit 소멸자" << endl;
+}
 void Deposit::show_info() {
     balance += interest * (time(NULL) - startDate);
     cout << "계좌 종류: 보통 예금 계좌" << endl;
