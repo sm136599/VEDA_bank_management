@@ -9,7 +9,7 @@ using namespace std;
 Deposit::Deposit() : Deposit(0) {
 
 }
-Deposit::Deposit(int money) : Account(money) {
+Deposit::Deposit(int money, time_t s = time(NULL)) : Account(money, s) {
     calculate_interest();
 }
 Deposit::~Deposit() {

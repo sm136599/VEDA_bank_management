@@ -11,7 +11,7 @@ using namespace std;
 Saving::Saving() : Saving(0, 0) {
 
 }
-Saving::Saving(int money, int duration) : Account(money), duration(duration) {
+Saving::Saving(int money, int duration, time_t s = time(NULL)) : Account(money, s), duration(duration) {
     this->startDate = time(NULL);
     calculate_interest();
 }

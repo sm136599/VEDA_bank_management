@@ -6,7 +6,7 @@ class Saving : public Account {
     int duration;
 public:
     Saving();
-    Saving(int, int);
+    Saving(int, int, time_t);
     virtual void show_info();
     virtual void calculate_interest();
     virtual bool deposit(int money);

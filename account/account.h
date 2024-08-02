@@ -4,12 +4,11 @@
 class Account {
 protected:
     time_t startDate;
-    int account_number;
     int balance;
     int interest;
 public:
     Account();
-    Account(int);
+    Account(int, time_t);
     virtual void show_info();
     virtual void calculate_interest() = 0;
     virtual bool deposit(int money);

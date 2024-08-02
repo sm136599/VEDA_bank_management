@@ -5,9 +5,9 @@ using namespace std;
 #include "account.h"
 
 Account::Account() : Account(0) {}
-Account::Account(int money) {
+Account::Account(int money, time_t s = time(NULL)) {
   this->balance = money;
-  this->startDate = time(NULL);
+  this->startDate = s;
 }
 Account::~Account() {
     cout << "Account 소멸자" << endl;

@@ -6,7 +6,7 @@
 class Deposit : public Account {
 public:
     Deposit();
-    Deposit(int);
+    Deposit(int, time_t);
     virtual void show_info();
     virtual void calculate_interest();
     virtual bool deposit(int money);
