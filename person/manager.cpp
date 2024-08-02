@@ -38,6 +38,12 @@ void Manager::make_saving()
 {
     return;
 }
+void Manager::insert_deposit(int money, time_t s) {
+    return;
+}
+void Manager::insert_saving(int money, int duratin, time_t s) {
+    return ;
+}
 void Manager::show_all_account() 
 {
     return;

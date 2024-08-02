@@ -28,7 +28,7 @@ void User::make_deposit()
     cout << "보통예금 - 입금할 액수를 입력하세요: \n";
     int money;
     cin >> money;
-    this->accounts.push_back(new Deposit(money)); 
+    insert_deposit(money); 
     cout << "보통예금이 생성되었습니다. \n";
     cout << "보통예금 잔액: " << money << '\n';
 }
@@ -40,9 +40,17 @@ void User::make_saving()
     cin >> money;
     cout << "정기예금 - 입금할 년 수를 입력하세요: \n";
     cin >> year;
-    this->accounts.push_back(new Saving(money, year * 12));
+    insert_saving(money, year * 12);
     cout << "정기예금이 생성되었습니다.\n";
     cout << "정기예금 잔액: " << money << ", 기간: " << year << "년\n";
+}
+
+void User::insert_deposit(int money, time_t s = time(NULL)) {
+    this->accounts.push_back(new Deposit(money, s));
+}
+
+void User::insert_saving(int money, int duration, time_t s = time(NULL)) {
+    this->accounts.push_back(new Saving(money, duration, s));
 }
 
 void User::show_all_account() {
