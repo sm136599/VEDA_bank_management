@@ -114,8 +114,13 @@ void make_account()
 
 void delete_account()
 {
-    cout << "삭제할 계좌를 선택해주세요\n";
+    cout << "삭제할 계좌의 숫자를 선택해주세요\n";
     sys[id].second->show_all_account();
+    int account_num; cin >> account_num;
+    vector<Account*>& accounts = sys[id].second->get_accounts();
+    delete accounts[account_num-1];
+    accounts.erase(accounts.begin() + account_num-1);
+    cout << "삭제되었습니다." << endl;
 }
 
 void user_mode()

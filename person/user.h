@@ -19,7 +19,7 @@ public:
     virtual void insert_deposit(int, time_t);
     virtual void insert_saving(int, int, time_t);
     virtual string who_is_this();
-    virtual vector<Account*> get_accounts(); 
+    virtual vector<Account*>& get_accounts(); 
     virtual ~User();
 };
 

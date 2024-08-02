@@ -50,7 +50,7 @@ public:
     virtual void insert_saving(int, int) = 0;
     virtual void insert_deposit(int, time_t) = 0;
     virtual void insert_saving(int, int, time_t) = 0;
-    virtual vector<Account*> get_accounts() = 0; 
+    virtual vector<Account*>& get_accounts() = 0; 
     virtual string who_is_this() = 0;
     virtual ~Person();
 };

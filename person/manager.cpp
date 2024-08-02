@@ -55,7 +55,7 @@ void Manager::show_all_account()
     return;
 }
 
-vector<Account*> Manager::get_accounts()
+vector<Account*>& Manager::get_accounts()
 {
     vector<Account*> v;
     return v;

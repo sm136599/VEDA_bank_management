@@ -61,10 +61,15 @@ void User::insert_saving(int money, int duration, time_t s) {
 }
 
 void User::show_all_account() {
-    int idx = 0;
+    if (accounts.empty()) {
+        cout << "계좌가 없습니다." << endl;
+        return;
+    }
+    int idx = 1;
     for (const auto& account : accounts) {
         cout << idx << "번 계좌: "; 
         account->show_info();
+        idx++;
     }
 }
 
@@ -73,7 +78,7 @@ string User::who_is_this()
     return "User"; 
 }
 
-vector<Account*> User::get_accounts()
+vector<Account*>& User::get_accounts()
 {
     return this->accounts; 
 }
