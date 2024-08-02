@@ -65,5 +65,8 @@ vector<Account*> User::get_accounts()
 
 User::~User()
 {
+    for (const auto& account : accounts) {
+        delete account;
+    }
     cout << "name: " << this->name << ", age: " << this->age << "인 사용자 소멸\n";
 }
